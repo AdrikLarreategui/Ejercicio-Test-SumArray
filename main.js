@@ -22,10 +22,31 @@
 
 // Si recibimos null, deberá devolverse 0: sumArray(null) | 0
 // Si recibimos un array vacío, deberá devolverse 0: sumArray([ ]) | 0
+//Si recibimos un array compuesto por un valor, deberá devolverse 0: sumArray([ 3 ]) | 0
+//Si recibimos un array compuesto por dos valores, deberá devolverse 0: sumArray([ 3, 5 ]) | 0
 function sumArray(array) {
-    let sum = 0, sumArray = []
-    if (array === null || array === undefined || sumArray.length <= 2)
+    let sum = 0, otherArray = []
+    if (array === null || array === undefined || array.length <=2 ) {
     return sum
+//Si recibimos un array compuesto por varrios valores, que develva la suma de todos menos el más alto y el más bajo: 
+//sumArray([ 6, 2, 1, 8, 10 ]) | 16
+    } else {
+        const max = Math.max(...array)
+        const min = Math.min(...array)
+        array.forEach((n) => {
+            if(n < max && n> min) {
+                if(otherArray.length === 0) {
+                    otherArray = [n]
+                } else {
+                    otherArray.push(n)
+                }
+            }
+        })
+        for(let i = 0; i< otherArray.length; i++) {
+            sum += otherArray[i]
+        }
+        return sum
     }
+}
 
     
