@@ -28,6 +28,7 @@ function sumArray(array) {
     let sum = 0, otherArray = []
     if (array === null || array === undefined || array.length <=2 ) {
     return sum
+
 //Si recibimos un array compuesto por varrios valores, que devuelva la suma de todos menos el más alto y el más bajo: 
 //sumArray([ 6, 2, 1, 8, 10 ]) | 16
 //sumArray([ 0, 1, 6, 10, 10 ]) | 17
@@ -52,4 +53,37 @@ function sumArray(array) {
     }
 }
 
-    
+
+//SEGUNDA VUELTA SIN UTILIZAR "SORT" NI "REDUCE":
+
+//Si recibimos null, deberá devolverse 0: sumArray(null) | 0
+//Si recibimos un array vacío, deberá devolverse 0: sumArray([ ]) | 0
+//Si recibimos un array compuesto por un valor, deberá devolverse 0: sumArray([ 3 ]) | 0
+//Si recibimos un array compuesto por dos valores, deberá devolverse 0: sumArray([ 3, 5 ]) | 0
+function sumArray2(array) {
+    let sum2 = 0, anotherArray = []
+    if(array === null || array === undefined || array.length<=2) {
+    return sum2
+//Si recibimos un array compuesto por varrios valores, que devuelva la suma de todos menos el más alto y el más bajo: 
+//sumArray([ 6, 2, 1, 8, 10 ]) | 16
+//sumArray([ 0, 1, 6, 10, 10 ]) | 17
+//sumArray([ -6, -20, -1, -10, -12 ]) | -28
+//sumArray([ -6, 20, -1, 10, -12 ]) | 3
+    } else {
+        const max2 = Math.max(...array)
+        const min2 = Math.min(...array)
+        for (let i = 0; i < array.length; i++) {
+                if(array[i] < max2 && array[i] > min2) {
+                    if(anotherArray.length === 0) {
+                        anotherArray = [array[i]]
+                    } else {
+                    anotherArray.push(array[i])
+                    }
+                }
+            }
+            for(let i = 0; i < anotherArray.length; i++) {
+                sum2 += anotherArray[i]
+            }
+        return sum2
+    }
+}
