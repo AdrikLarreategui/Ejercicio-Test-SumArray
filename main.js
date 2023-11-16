@@ -29,7 +29,7 @@ function sumArray(array) {
     if (array === null || array === undefined || array.length <=2 ) {
     return sum
 
-//Si recibimos un array compuesto por varrios valores, que devuelva la suma de todos menos el más alto y el más bajo: 
+//Si recibimos un array compuesto por varios valores, que devuelva la suma de todos menos el más alto y el más bajo: 
 //sumArray([ 6, 2, 1, 8, 10 ]) | 16
 //sumArray([ 0, 1, 6, 10, 10 ]) | 17
 //sumArray([ -6, -20, -1, -10, -12 ]) | -28
